@@ -19,9 +19,9 @@ on:
       - .github/workflows/build-and-release-runners.yml
 
 env:
-  RUNNER_VERSION: 2.279.0
+  RUNNER_VERSION: 2.280.2
   DOCKER_VERSION: 19.03.12
-  DOCKERHUB_USERNAME: summerwind
+  DOCKERHUB_USERNAME: comtravo
 
 jobs:
   build:
@@ -36,9 +36,6 @@ jobs:
           - name: actions-runner
             os-version: 18.04
             dockerfile: Dockerfile.ubuntu.1804
-          - name: actions-runner-dind
-            os-version: 20.04
-            dockerfile: Dockerfile.dindrunner
 
     steps:
       - name: Set outputs
@@ -86,8 +83,6 @@ jobs:
         include:
           - name: actions-runner
             dockerfile: Dockerfile
-          - name: actions-runner-dind
-            dockerfile: Dockerfile.dindrunner
 
     steps:
       - name: Checkout
